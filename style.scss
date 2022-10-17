@@ -1,0 +1,175 @@
+@use "sass:math";
+@import url(https://fonts.googleapis.com/css?family=Roboto:regular,700);
+
+@function percent($px, $from) {
+  @return math.div($px, $from) * 100%;
+}
+//REM
+@function rem($px) {
+  @return math.div($px, 16) + rem;
+}
+//EM
+@function em($px, $current: 16) {
+  @return math.div($px, $current) + em;
+}
+body {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: Roboto;
+}
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  max-width: 1030px;
+  margin: 0 auto;
+  padding: 0px 15px;
+}
+
+.header {
+  padding: 15px 0;
+  background: #03a4ff;
+  margin-bottom: 90px;
+  &__menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  &__items {
+  }
+  &__item {
+    color: #ffffff;
+    text-transform: uppercase;
+    &.active {
+      color: red;
+    }
+  }
+}
+
+@keyframes error {
+  0% {
+    border: 1px solid red;
+  }
+  50% {
+    border: 1px solid transparent;
+  }
+  100% {
+    border: 1px solid red;
+  }
+}
+
+.main__body {
+  display: flex;
+  gap: 30px;
+}
+.aside {
+  flex-basis: percent(225, 1000);
+
+  &__content {
+    background: #f9f9f9;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 15px 15px 263px;
+    input {
+      // transition: border 0.2s;
+      border: 1px solid transparent;
+      &.error {
+        border: 1px solid red;
+        animation: error 1.5s cubic-bezier(0.1, -0.6, 0.2, 0);
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: rem(20);
+  }
+  &__name {
+  }
+  &__input-name {
+    padding: 8px 10px;
+  }
+  &__desc {
+  }
+  &__input-desc {
+    padding: 8px 10px 58px;
+  }
+  &__btn {
+    color: #ffffff;
+    padding: 8px;
+    background: #03a4ff;
+    box-shadow: 0px 2px 6px rgb(0 0 0 / 25%);
+    border-radius: 5px;
+    border: none;
+    transition: background 0.2s;
+    &:focus,
+    &:hover {
+      background: #0b84ca;
+    }
+  }
+}
+
+.to-do {
+  flex-basis: percent(745, 1000);
+
+  &__content {
+    padding: 15px 20px 67px;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &.completed {
+      .to-do__item {
+        display: none;
+        &.completed {
+          display: grid;
+        }
+      }
+    }
+    &.todo {
+      .to-do__item {
+        display: grid;
+        &.completed {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__item {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns:
+      percent(20px, 665px) percent(88px, 665px) percent(353px, 665px)
+      percent(90px, 665px);
+    background: #ffffff;
+    padding: 15px 20px;
+    border: 1px solid transparent;
+  }
+}
+.item-to-do {
+  &.completed {
+    border: 1px solid #19d84f;
+  }
+  &__number {
+  }
+
+  &__name {
+    text-transform: uppercase;
+  }
+
+  &__desc {
+    text-transform: uppercase;
+    color: #ababab;
+  }
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}

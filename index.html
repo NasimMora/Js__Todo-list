@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="null.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__menu">
+          <a id="all-tasks" href="#" class="header__item active">All Tasks</a>
+          <a id="todo-tasks" href="#" class="header__item">To do</a>
+          <a id="completed-tasks" href="#" class="header__item">Completed</a>
+          <!-- <a href="#" class="header__item">Completed</a> -->
+        </div>
+      </header>
+      <main>
+        <div class="main__body container">
+          <section class="aside">
+            <div class="aside__container">
+              <div class="aside__content">
+                <div class="aside__title">Add new</div>
+                <div class="aside__name">
+                  <input
+                    id="input-name"
+                    class="aside__input-name"
+                    type="text"
+                    placeholder="TASK NAME"
+                  />
+                </div>
+                <div class="aside__desc">
+                  <input
+                    id="input-desc"
+                    class="aside__input-desc"
+                    type="text"
+                    placeholder="TASK DECRIPTION"
+                  />
+                </div>
+                <button id="add-button" class="aside__btn">ADD</button>
+              </div>
+            </div>
+          </section>
+          <section class="to-do">
+            <div class="to-do__container">
+              <div class="to-do__content"></div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <script src="index.js"></script>
+    </div>
+  </body>
+</html>
